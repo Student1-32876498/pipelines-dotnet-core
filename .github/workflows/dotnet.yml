@@ -22,9 +22,11 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      - name: Publish
+    - name: Publish
     run: dotnet publish -c Release -o website
 - name: Upload artifact for deployment job
   uses: actions/upload-artifact@v2.3.1
